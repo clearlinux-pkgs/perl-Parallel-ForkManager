@@ -4,11 +4,11 @@
 #
 Name     : perl-Parallel-ForkManager
 Version  : 2.02
-Release  : 13
+Release  : 14
 URL      : https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.02.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.02.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libp/libparallel-forkmanager-perl/libparallel-forkmanager-perl_1.19-1.debian.tar.xz
-Summary  : 'A simple parallel processing fork manager'
+Summary  : A simple parallel processing fork manager
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
 BuildRequires : buildreq-cpan
@@ -31,6 +31,7 @@ Parallel::ForkManager - A simple parallel processing fork manager
 Summary: dev components for the perl-Parallel-ForkManager package.
 Group: Development
 Provides: perl-Parallel-ForkManager-devel = %{version}-%{release}
+Requires: perl-Parallel-ForkManager = %{version}-%{release}
 
 %description dev
 dev components for the perl-Parallel-ForkManager package.
@@ -41,7 +42,7 @@ dev components for the perl-Parallel-ForkManager package.
 cd ..
 %setup -q -T -D -n Parallel-ForkManager-2.02 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Parallel-ForkManager-2.02/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Parallel-ForkManager-2.02/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
