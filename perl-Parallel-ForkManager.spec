@@ -4,7 +4,7 @@
 #
 Name     : perl-Parallel-ForkManager
 Version  : 2.02
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.02.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.02.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libp/libparallel-forkmanager-perl/libparallel-forkmanager-perl_1.19-1.debian.tar.xz
