@@ -4,13 +4,15 @@
 #
 Name     : perl-Parallel-ForkManager
 Version  : 2.02
-Release  : 14
+Release  : 15
 URL      : https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.02.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.02.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libp/libparallel-forkmanager-perl/libparallel-forkmanager-perl_1.19-1.debian.tar.xz
-Summary  : A simple parallel processing fork manager
+Summary  : 'A simple parallel processing fork manager'
 Group    : Development/Tools
-License  : Artistic-1.0-Perl
+License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
+Requires: perl-Parallel-ForkManager-license = %{version}-%{release}
+Requires: perl-Parallel-ForkManager-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Devel::GlobalDestruction)
 BuildRequires : perl(Module::Runtime)
@@ -37,18 +39,36 @@ Requires: perl-Parallel-ForkManager = %{version}-%{release}
 dev components for the perl-Parallel-ForkManager package.
 
 
+%package license
+Summary: license components for the perl-Parallel-ForkManager package.
+Group: Default
+
+%description license
+license components for the perl-Parallel-ForkManager package.
+
+
+%package perl
+Summary: perl components for the perl-Parallel-ForkManager package.
+Group: Default
+Requires: perl-Parallel-ForkManager = %{version}-%{release}
+
+%description perl
+perl components for the perl-Parallel-ForkManager package.
+
+
 %prep
 %setup -q -n Parallel-ForkManager-2.02
-cd ..
-%setup -q -T -D -n Parallel-ForkManager-2.02 -b 1
+cd %{_builddir}
+tar xf %{_sourcedir}/libparallel-forkmanager-perl_1.19-1.debian.tar.xz
+cd %{_builddir}/Parallel-ForkManager-2.02
 mkdir -p deblicense/
-cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Parallel-ForkManager-2.02/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/Parallel-ForkManager-2.02/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -58,7 +78,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -66,6 +86,8 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-Parallel-ForkManager
+cp %{_builddir}/Parallel-ForkManager-2.02/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Parallel-ForkManager/4127ca28982b99d5686b246efe7cbe07cf8f0267
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -78,10 +100,17 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Parallel/ForkManager.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Parallel/ForkManager/Child.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Parallel::ForkManager.3
 /usr/share/man/man3/Parallel::ForkManager::Child.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-Parallel-ForkManager/4127ca28982b99d5686b246efe7cbe07cf8f0267
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Parallel/ForkManager.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Parallel/ForkManager/Child.pm
