@@ -4,7 +4,7 @@
 #
 Name     : perl-Parallel-ForkManager
 Version  : 2.02
-Release  : 15
+Release  : 16
 URL      : https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.02.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.02.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libp/libparallel-forkmanager-perl/libparallel-forkmanager-perl_1.19-1.debian.tar.xz
@@ -87,7 +87,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Parallel-ForkManager
-cp %{_builddir}/Parallel-ForkManager-2.02/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Parallel-ForkManager/4127ca28982b99d5686b246efe7cbe07cf8f0267
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-Parallel-ForkManager/4127ca28982b99d5686b246efe7cbe07cf8f0267
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -112,5 +112,5 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Parallel/ForkManager.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Parallel/ForkManager/Child.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Parallel/ForkManager.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Parallel/ForkManager/Child.pm
