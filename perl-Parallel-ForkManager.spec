@@ -4,7 +4,7 @@
 #
 Name     : perl-Parallel-ForkManager
 Version  : 2.02
-Release  : 19
+Release  : 20
 URL      : https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.02.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.02.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libp/libparallel-forkmanager-perl/libparallel-forkmanager-perl_1.19-1.debian.tar.xz
@@ -112,5 +112,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/Parallel/ForkManager.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Parallel/ForkManager/Child.pm
+/usr/lib/perl5/*
