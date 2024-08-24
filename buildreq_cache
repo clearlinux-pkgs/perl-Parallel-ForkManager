@@ -1,10 +1,7 @@
-2.02
-perl(Devel::GlobalDestruction)
-perl(Module::Runtime)
+2.03
 perl(Moo)
 perl(Moo::Role)
 perl(Role::Tiny)
-perl(Sub::Exporter::Progressive)
 perl(Sub::Quote)
 perl(Sub::Uplevel)
 perl(Test::Warn)

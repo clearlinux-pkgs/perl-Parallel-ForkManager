@@ -1,5 +1,5 @@
 PKG_NAME := perl-Parallel-ForkManager
-URL = https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.02.tar.gz
-ARCHIVES = http://http.debian.net/debian/pool/main/libp/libparallel-forkmanager-perl/libparallel-forkmanager-perl_1.19-1.debian.tar.xz deblicense/
+URL = https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.03.tar.gz
+ARCHIVES = 
 
 include ../common/Makefile.common
