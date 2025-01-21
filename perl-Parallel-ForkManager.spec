@@ -7,7 +7,7 @@
 #
 Name     : perl-Parallel-ForkManager
 Version  : 2.03
-Release  : 26
+Release  : 27
 URL      : https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.03.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.03.tar.gz
 Summary  : 'A simple parallel processing fork manager'
